@@ -4,9 +4,6 @@ name: 'An example of creating and executing custom GitHub Actions in C#.'
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'src/**'              # run on all changes to this dir
-      - '!src/*.md'           # ignore this file
   workflow_dispatch:
     inputs:
       reason:
@@ -32,7 +29,8 @@ jobs:
 
     - name: GithubActions.Csharp
       id: github-actions-csharp
-      uses: ./ # Uses an action.yml in the root directory.
+      # uses: ./.github/actions # Uses an action.yml in the root directory.
+      uses: MareMare/try-github-actions-in-csharp@main
       with:
         firstName: ${{ github.repository_owner }}
         lastName: ${{ github.repository }}
