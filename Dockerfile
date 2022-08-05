@@ -1,5 +1,5 @@
 # How to build image:
-# docker build --pull --rm -f "DockerFile" -t trygithubactionsincsharp:latest "."
+# docker build --pull --rm -f "Dockerfile" -t trygithubactionsincsharp:latest "."
 # 
 # How to run image:
 # docker run --rm -it trygithubactionsincsharp:latest
@@ -28,6 +28,5 @@ LABEL com.github.actions.color="orange"
 
 # Relayer the .NET SDK, anew with the build output
 FROM mcr.microsoft.com/dotnet/sdk:6.0
-WORKDIR /app
 COPY --from=build-env /app/out .
-ENTRYPOINT [ "dotnet", "GithubActions.Csharp.dll" ]
+ENTRYPOINT [ "dotnet", "/GithubActions.Csharp.dll" ]
