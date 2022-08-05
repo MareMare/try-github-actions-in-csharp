@@ -8,7 +8,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 as build-env
 
 # Copy everything and publish the release (publish implicitly restores and builds)
-WORKDIR /app
+WORKDIR /src
 COPY . ./
 RUN dotnet publish ./GithubActions.Csharp/GithubActions.Csharp.csproj -c Release -o out --no-self-contained
 
@@ -28,5 +28,6 @@ LABEL com.github.actions.color="orange"
 
 # Relayer the .NET SDK, anew with the build output
 FROM mcr.microsoft.com/dotnet/sdk:6.0
-COPY --from=build-env /app/out .
-ENTRYPOINT [ "dotnet", "/GithubActions.Csharp.dll" ]
+WORKDIR /app
+COPY --from=build-env /src/out .
+ENTRYPOINT [ "dotnet", "/app/GithubActions.Csharp.dll" ]
