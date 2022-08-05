@@ -1,5 +1,5 @@
 # How to build image:
-# docker build --pull --rm -f "Dockerfile" -t trygithubactionsincsharp:latest "."
+# docker build --pull --rm -f "src/Dockerfile" -t trygithubactionsincsharp:latest "src"
 # 
 # How to run image:
 # docker run --rm -it trygithubactionsincsharp:latest
