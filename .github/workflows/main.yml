@@ -32,7 +32,7 @@ jobs:
 
     - name: GithubActions.Csharp
       id: github-actions-csharp
-      uses: ./src # Uses an action.yml in this directory.
+      uses: ./ # Uses an action.yml in the root directory.
       with:
         firstName: ${{ github.repository_owner }}
         lastName: ${{ github.repository }}
