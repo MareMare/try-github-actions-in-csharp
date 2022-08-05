@@ -29,8 +29,7 @@ jobs:
 
     - name: GithubActions.Csharp
       id: github-actions-csharp
-      # uses: ./.github/actions # Uses an action.yml in the root directory.
-      uses: MareMare/try-github-actions-in-csharp@main
+      uses: ./ # Uses an action in the root directory
       with:
         firstName: ${{ github.repository_owner }}
         lastName: ${{ github.repository }}
