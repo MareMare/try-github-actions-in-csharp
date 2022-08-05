@@ -1,0 +1,23 @@
+name: 'try-github-actions-in-csharp'
+description: 'An example of creating and executing custom GitHub Actions in C#.'
+branding:
+  icon: sliders
+  color: purple
+inputs:
+  firstName:
+    description: 'First Name.'
+    required: true
+  lastName:
+    description: 'Last Name.'
+    required: true
+outputs:
+  summary-details:
+    description: 'A detailed summary of all the projects that were flagged.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '--first-name'
+    - ${{ inputs.firstName }}
+    - '--last-name'
+    - ${{ inputs.lastName }}

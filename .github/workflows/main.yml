@@ -1,0 +1,42 @@
+# The name of the work flow. Badges will use this name
+name: 'An example of creating and executing custom GitHub Actions in C#.'
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/**'              # run on all changes to this dir
+      - '!src/*.md'           # ignore this file
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'The reason for running the workflow'
+        required: true
+        default: 'Manual run'
+
+jobs:
+  try-github-actions-in-csharp:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: 'Print manual run reason'
+      if: ${{ github.event_name == 'workflow_dispatch' }}
+      run: |
+        echo 'Reason: ${{ github.event.inputs.reason }}'
+
+    - name: GithubActions.Csharp
+      id: github-actions-csharp
+      uses: ./src # Uses an action.yml in this directory.
+      with:
+        firstName: ${{ github.repository_owner }}
+        lastName: ${{ github.repository }}
+      
+    # Use the output from the `hello` step
+    - name: Get the output
+      run: echo "The output was ${{ steps.github-actions-csharp.outputs.summary-details }}"
