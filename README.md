@@ -31,3 +31,5 @@ C#でカスタムな GitHub Actions の作成と実行例です。
     COPY --from=build-env /app/out .
     ENTRYPOINT [ "dotnet", "/app/GithubActions.Csharp.dll" ]
     ```
+
+* updated! 2022/08/13 09:48:24(UTC)
