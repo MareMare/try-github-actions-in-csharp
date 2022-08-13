@@ -30,6 +30,9 @@ jobs:
     - name: GithubActions.Csharp
       id: github-actions-csharp
       uses: ./src # Uses an action in this directory
+      env:
+        # Pass the environment variables to the C# module on the Docker container.
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       with:
         firstName: ${{ github.repository_owner }}
         lastName: ${{ github.repository }}
