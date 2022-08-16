@@ -2,9 +2,9 @@
 
 ⚠️ **_This repository is intended for me._**
 
-[![An example of creating and executing custom GitHub Actions in C#.](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/main.yml/badge.svg)](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/main.yml)
-[![Build Docker Image.](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/build.yml/badge.svg)](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/build.yml)
-[![Run Docker Container Action.](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/run.yml/badge.svg)](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/run.yml)
+[![An example of creating and executing custom GitHub Actions in C#.](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/main.yml)
+[![Build Docker Image.](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/build.yml)
+[![Run Docker Container Action.](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/run.yml/badge.svg?branch=main)](https://github.com/MareMare/try-github-actions-in-csharp/actions/workflows/run.yml)
 
 An example of creating and executing custom GitHub Actions in C#.
 
