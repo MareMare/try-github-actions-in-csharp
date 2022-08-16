@@ -15,7 +15,8 @@ outputs:
     description: 'A detailed summary of all the projects that were flagged.'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  # image: 'Dockerfile'
+  image: 'docker://ghcr.io/maremare/try-github-actions-in-csharp'
   args:
     - '--first-name'
     - ${{ inputs.firstName }}

@@ -1,0 +1,43 @@
+# The name of the work flow. Badges will use this name
+name: 'Run Docker Container Action.'
+
+on:
+  # schedule:
+  #   - cron: '45 6 * * 6'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'The reason for running the workflow'
+        required: true
+        default: 'Manual run'
+
+jobs:
+
+  try-github-actions-in-csharp:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v3
+
+      - name: 🖨️ Print manual run reason
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          echo 'Reason: ${{ github.event.inputs.reason }}'
+
+      - name: 🏥 try-github-actions-in-csharp
+        id: try-github-actions-in-csharp
+        # uses: maremare/try-github-actions-in-csharp@main
+        uses: ./src # Uses an action in this directory
+        with:
+          firstName: ${{ github.repository_owner }}
+          lastName: ${{ github.repository }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Use the output from the `hello` step
+      - name: 📤 Get the output
+        run: echo "The output was ${{ steps.try-github-actions-in-csharp.outputs.summary-details }}"
